@@ -10,7 +10,6 @@ defmodule BankingApi.Repo.Migrations.CreateUserTable do
       add :pix, :string
       add :nickname, :string
       add :password, :string
-      add :email_verified, :boolean
 
       timestamps()
     end
