@@ -18,7 +18,6 @@ defmodule BankingApi.User do
     field :nickname, :string
 
     field :password, :string
-    field :email_verified, :boolean
 
     has_one :account, Account
 
