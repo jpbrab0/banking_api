@@ -11,6 +11,10 @@ config :banking_api,
   ecto_repos: [BankingApi.Repo],
   generators: [binary_id: true]
 
+config :banking_api, BankingApi.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :banking_api, BankingApiWeb.Endpoint,
   url: [host: "localhost"],
