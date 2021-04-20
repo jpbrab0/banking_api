@@ -1,19 +1,26 @@
 # BankingApi
 
-To start your Phoenix server:
+## About the project
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+This project is a challenge of an company 👀💚
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+The challenge is make a Banking Api, and can 
+* Create Users
+* Deposit money in your Account
+* Make withdraws and more
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+And is builded with:
+* Elixir
+* Phoenix
+* Ecto
+* Docker-Compose
 
-## Learn more
+## Todo List
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+- [x] Get balance of an account
+- [ ] Create User
+- [ ] Make withdraws
+- [ ] Make deposits
+- [ ] Make transfer to anouther account
+
+Made by [João Pedro Resende](https://jpres.dev)
