@@ -7,7 +7,7 @@ defmodule BankingApi.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
-  @required [:name, :email, :age, :cpf, :pix, :nickname, :password, :email_verified]
+  @required [:name, :email, :age, :cpf, :pix, :nickname, :password]
 
   schema "users" do
     field :name, :string
