@@ -5,7 +5,7 @@ defmodule BankingApi.Repo.Migrations.CreateUserTable do
     create table(:users) do
       add :name, :string
       add :email, :string
-      add :age, :string
+      add :age, :integer
       add :cpf, :string
       add :pix, :string
       add :nickname, :string
