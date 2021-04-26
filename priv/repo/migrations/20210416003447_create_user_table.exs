@@ -7,7 +7,6 @@ defmodule BankingApi.Repo.Migrations.CreateUserTable do
       add :email, :string
       add :age, :integer
       add :cpf, :string
-      add :pix, :string
       add :nickname, :string
       add :password, :string
 
@@ -16,7 +15,6 @@ defmodule BankingApi.Repo.Migrations.CreateUserTable do
 
     create unique_index(:users, [:email])
     create unique_index(:users, [:cpf])
-    create unique_index(:users, [:pix])
     create unique_index(:users, [:nickname])
     create unique_index(:users, [:password])
   end
