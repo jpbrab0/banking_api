@@ -61,8 +61,8 @@ Yet not have none route, but this routes is in development.
 
 - [x] Get balance of an account
 - [x] Create User
-- [ ] Make withdraws
-- [ ] Make deposits
-- [ ] Make transfer to anouther account
+- [x] Make deposits
+- [x] Make withdraws
+- [x] Make transfer to anouther account
 
 Made by [João Pedro Resende](https://jpres.dev)
