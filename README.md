@@ -1,5 +1,6 @@
 # BankingApi
 
+[![Elixir CI](https://github.com/jpbrab0/banking_api/actions/workflows/elixir.yml/badge.svg)](https://github.com/jpbrab0/banking_api/actions/workflows/elixir.yml)
 ## About the project 📜
 
 This project is a challenge of an company 👀💚
@@ -55,7 +56,32 @@ gh repo clone jpbrab0/banking_api
 
 ## Endpoints
 
-Yet not have none route, but this routes is in development.
+Url: ``https://localhost:4000/api``
+
+GET ``/users/user/:id``, Returns the balance of a user.
+
+```json
+{
+  "user": {
+    "balance": "200.00",
+    "user_id": "57cbe0b9-0940-49a6-a579-3377f97fc3ef"
+  }
+}
+```
+
+POST ``/users/user``, Create a user with an account.
+
+Requisition Body
+```json
+{
+	"name":"penguinshow",
+	"email":"penguinshow@gmail.com",
+	"age":18,
+	"cpf":"123456678",
+	"nickname":"penguimshow1234",
+	"password":"coxinha1234"
+}
+```
 
 ## Todo List 📝
 
@@ -64,5 +90,11 @@ Yet not have none route, but this routes is in development.
 - [x] Make deposits
 - [x] Make withdraws
 - [x] Make transfer to anouther account
+- [x] Make User Controllers
+- [x] Make User Views
+- [ ] Make Account Controllers
+- [ ] Make Account Views
+- [x] Configure Github Actions
+- [ ] Deploy the aplication
 
 Made by [João Pedro Resende](https://jpres.dev)
