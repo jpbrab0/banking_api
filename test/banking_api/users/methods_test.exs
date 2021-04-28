@@ -9,7 +9,8 @@ defmodule BankingApi.User.MethodsTest do
 
   describe "get_balance/1" do
     test "Search an invalid uuid and returns a error" do
-      response = Methods.get_balance("57cbe0b9-0940-49a6-a579-3377f97fc3ef")
+      response = Methods.get_user_account("57cbe0b9-0940-49a6-a579-3377f97fc3ef")
+
       assert response == {:error, "Non found results of this Account UUID"}
     end
   end
