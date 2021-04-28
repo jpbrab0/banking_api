@@ -22,7 +22,6 @@ defmodule BankingApiWeb.UserControllerTest do
         }
       conn = post(build_conn(), "api/users/user", params)
 
-      assert
       assert conn.resp_body == "{\"message\":\"The user has been created.\",\"status\":200}"
     end
   end
