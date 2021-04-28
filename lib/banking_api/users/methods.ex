@@ -6,11 +6,11 @@ defmodule BankingApi.User.Methods do
     This module is for run databases functions, for exemple, create users, view balance of your account and anouther functions.
   """
 
-  def get_balance(user_uuid) do
+  def get_user_account(user_uuid) do
     try do
       result = Repo.get_by!(Account, user_id: user_uuid)
 
-      {:ok, result.balance}
+      {:ok, result}
     rescue
       Ecto.NoResultsError ->
         {:error, "Non found results of this Account UUID"}
