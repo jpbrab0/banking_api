@@ -1,4 +1,4 @@
-defmodule BankingApi.User do 
+defmodule BankingApi.User do
   use Ecto.Schema
 
   import Ecto.Changeset
@@ -30,6 +30,6 @@ defmodule BankingApi.User do
     |> validate_length(:password, min: 6)
     |> validate_number(:age, greater_than_or_equal_to: 18)
     |> validate_format(:email, ~r/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)
-    |> unique_constraint([:email, :nickname, :pix, :password, :cpf])
+    |> unique_constraint([:email, :nickname, :password, :cpf])
   end
 end
