@@ -10,6 +10,9 @@ defmodule BankingApiWeb.Router do
 
     get "/users/user/:id", UserController, :view_account_balance
     post "/users/user", UserController, :create_user
+    post "/users/user/deposit/", AccountController, :make_deposit
+    post "/users/user/withdraw/", AccountController, :make_withdraw
+    post "/users/user/transaction", AccountController, :make_transaction
   end
 
   # Enables LiveDashboard only for development
