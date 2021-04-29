@@ -35,7 +35,7 @@ defmodule BankingApi.User.Methods do
   defp run_transaction(multi) do
     case Repo.transaction(multi) do
       {:error, _operation, _reason, _changes} -> {:error, "Ocurred an error in the database"}
-      {:ok, %{create_account: _account}} -> {:ok, "The user has been created"}
+      {:ok, %{create_account: account}} -> {:ok, "The user has been created", account.id}
     end
   end
 end
