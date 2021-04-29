@@ -83,6 +83,36 @@ Requisition Body
 }
 ```
 
+POST ``/users/user/deposit``, Deposit an quantity in a account.
+
+Requisition Body
+```json
+{
+	"id": "57cbe0b9-0940-49a6-a579-3377f97fc3ef",
+	"quantity": "100.00"
+}
+```
+
+POST ``/users/user/withdraw``, Withdraw an quantity in a account.
+
+Requisition Body
+```json
+{
+	"id": "57cbe0b9-0940-49a6-a579-3377f97fc3ef",
+	"quantity": "100.00"
+}
+```
+
+POST ``/users/user/transaction``, Makes a transaction for another account
+Requisition Body
+```json
+{
+	"sender":"57cbe0b9-0940-49a6-a579-3377f97fc3ef",
+	"receiver":"9eb7fca9-44ea-49c9-86d5-9ebb85712d55",
+	"quantity":"100.00"
+}
+```
+
 ## Todo List 📝
 
 - [x] Get balance of an account
@@ -92,8 +122,8 @@ Requisition Body
 - [x] Make transfer to anouther account
 - [x] Make User Controllers
 - [x] Make User Views
-- [ ] Make Account Controllers
-- [ ] Make Account Views
+- [x] Make Account Controllers
+- [x] Make Account Views
 - [x] Configure Github Actions
 - [ ] Deploy the aplication
 
