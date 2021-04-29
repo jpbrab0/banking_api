@@ -1,23 +1,28 @@
 defmodule BankingApi.Account.Operations do
-  alias BankingApi.{Repo, Account, User}
+  alias BankingApi.{Repo, Account}
 
   @moduledoc """
     This module is for methods of account, make deposits, withdraws, transactions
   """
 
   def deposit(account_uuid, quantity) do
-    {:ok, account} = get_account(account_uuid)
-    quantity =
-      quantity
-      |> to_string()
-      |> Decimal.new()
-    new_balance = Decimal.add(account.balance, quantity)
+    case get_account(account_uuid) do
+      {:ok, account} ->
+        quantity =
+          quantity
+          |> to_string()
+          |> Decimal.new()
+          new_balance = Decimal.add(account.balance, quantity)
 
-    account
-    |> Account.changeset(%{balance: new_balance})
-    |> Repo.update!()
+          account
+          |> Account.changeset(%{balance: new_balance})
+          |> Repo.update!()
 
-    {:ok, "The balance of account has been updated"}
+          {:ok, "The deposit was successful"}
+
+      {:error, _reason} ->
+        {:error, "Non found result of this account uuid, and is impossible deposit money in a account that not exists."}
+    end
   end
 
   def withdraw(account_uuid, quantity) do
@@ -34,7 +39,7 @@ defmodule BankingApi.Account.Operations do
     |> Account.changeset(%{balance: new_balance})
     |> Repo.update!()
 
-    {:ok, "The balance of account has been updated"}
+    {:ok, "The withdraw was successful"}
   end
 
   def transaction(sender_uuid, receiver_uuid, quantity) do
@@ -49,13 +54,15 @@ defmodule BankingApi.Account.Operations do
     sender_new_balance = Decimal.sub(sender_account.balance, quantity)
     receiver_new_balance = Decimal.add(receiver_account.balance, sender_new_balance)
 
+    sender_account
+    |> Account.changeset(%{balance: sender_new_balance})
+    |> Repo.update!()
+
     receiver_account
     |> Account.changeset(%{balance: receiver_new_balance})
     |> Repo.update!()
 
-    {:ok, receiver_name} = get_name_account(receiver_uuid)
-
-    {:ok, "The transaction was successful to #{receiver_name.name}"}
+    {:ok, "The transaction was successful"}
   end
 
   defp get_account(uuid) do
@@ -66,17 +73,6 @@ defmodule BankingApi.Account.Operations do
     rescue
       Ecto.NoResultsError ->
         {:error, "Non found results of this Account UUID"}
-    end
-  end
-
-  defp get_name_account(uuid) do
-    try do
-      user_result = Repo.get(User, uuid)
-
-      {:ok, user_result}
-    rescue
-      Ecto.NoResultsError ->
-        {:error, "Non found results of this User UUID"}
     end
   end
 end
