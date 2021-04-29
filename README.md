@@ -104,6 +104,7 @@ Requisition Body
 ```
 
 POST ``/users/user/transaction``, Makes a transaction for another account
+
 Requisition Body
 ```json
 {
