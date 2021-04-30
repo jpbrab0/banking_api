@@ -6,6 +6,9 @@ defmodule BankingApi.User.Methods do
     This module is for run databases functions, for exemple, create users, view balance of your account and anouther functions.
   """
 
+  @doc """
+    Function to get an user account.
+  """
   def get_user_account(user_uuid) do
     try do
       result = Repo.get_by!(Account, user_id: user_uuid)
@@ -17,6 +20,9 @@ defmodule BankingApi.User.Methods do
     end
   end
 
+  @doc """
+    Function to create new user in database
+  """
   def insert_user(params) do
     Multi.new()
     |> Multi.insert(:create_user, User.changeset(params))
