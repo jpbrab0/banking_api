@@ -19,7 +19,9 @@ defmodule BankingApi.User.MethodsTest do
     test "Create a user with a account and returns sucess" do
       params = %{name: "penguin", email: "clubpenguin@gmail.com", age: 18, cpf: "123456", nickname: "clubpenguin", password: "coxinha123"}
 
-      assert Methods.insert_user(params) == {:ok, "The user has been created"}
+      {:ok, message, user_id} = Methods.insert_user(params)
+
+      assert message == "The user has been created"
     end
 
     test "Create a user with account with invalid params and returns a error" do
