@@ -75,7 +75,7 @@ Url: `https://localhost:4000/api`
 ### Returns the balance of a user.
 
 ```http
-GET `/users/user/:id`
+GET /users/user/:id
 ```
 
 | Parameter | Type   |
@@ -85,7 +85,7 @@ GET `/users/user/:id`
 ### Create a user with an account.
 
 ```http
-POST /users/user` 
+POST /users/user
 ```
 
 | Parameter  | Type      |
@@ -100,7 +100,7 @@ POST /users/user`
 ### Deposit an quantity in a account.
 
 ```http
-POST `/users/user/deposit` 
+POST /users/user/deposit 
 ```
 
 | Parameter  | Type      |
@@ -111,7 +111,7 @@ POST `/users/user/deposit`
 ### Withdraw an quantity in a account.
 
 ```http
-POST `/users/user/withdraw`
+POST /users/user/withdraw
 ```
 
 | Parameter  | Type      |
@@ -122,7 +122,7 @@ POST `/users/user/withdraw`
 ### Makes a transaction for another account
 
 ```http
-POST `/users/user/transaction` 
+POST /users/user/transaction 
 ```
 
 | Parameter  | Type      |
