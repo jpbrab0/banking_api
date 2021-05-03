@@ -16,8 +16,10 @@ defmodule BankingApiWeb.UserController do
   end
 
   def create_user(conn, params) do
-    new_user = Methods.insert_user(params)
+    case Methods.insert_user(params) do
+      {:ok, message, _user_id} -> render(conn, "created_user.json", user: message)
 
-    render(conn, "created_user.json", user: new_user)
+      {:error, message} -> json(conn, %{message: message})
+    end
   end
 end
