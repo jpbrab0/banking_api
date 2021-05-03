@@ -1,27 +1,31 @@
 # BankingApi
 
 [![Elixir CI](https://github.com/jpbrab0/banking_api/actions/workflows/elixir.yml/badge.svg)](https://github.com/jpbrab0/banking_api/actions/workflows/elixir.yml)
+
 ## About the project 📜
 
 This project is a challenge of an company 👀💚
 
-The challenge is make a Banking Api, and can 
-* Create Users
-* Deposit money in your Account
-* Make withdraws and more
+The challenge is make a Banking Api, and can
+
+- Create Users
+- Deposit money in your Account
+- Make withdraws and more
 
 And is builded with:
-* Elixir
-* Phoenix
-* Ecto
-* Docker-Compose
+
+- Elixir
+- Phoenix
+- Ecto
+- Docker-Compose
 
 ## Installing the project 📦
 
 Prerequisites:
-* Elixir
-* Erlang
-* Docker-Compose
+
+- Elixir
+- Erlang
+- Docker-Compose
 
 The first step is clone the repository to your local machine:
 
@@ -46,73 +50,88 @@ gh repo clone jpbrab0/banking_api
 ## Running the project 🏃
 
 1. Install all dependencies of the project with mix:
-  * ``mix deps.get``
+
+- `mix deps.get`
 
 2. Setting up the database:
-  * ``docker-compose up -d``
+
+- `docker-compose up -d`
 
 3. Initialize the phoenix server:
-  * ``iex -S mix phx.server``
 
+- `iex -S mix phx.server`
+
+## Run tests 🧪
+
+To run tests, run the following command
+
+```bash
+mix test
+```
 ## Endpoints
 
-Url: ``https://localhost:4000/api``
+Url: `https://localhost:4000/api`
 
-GET ``/users/user/:id``, Returns the balance of a user.
+### Returns the balance of a user.
 
-```json
-{
-  "user": {
-    "balance": "200.00",
-    "user_id": "57cbe0b9-0940-49a6-a579-3377f97fc3ef"
-  }
-}
+```http
+GET `/users/user/:id`
 ```
 
-POST ``/users/user``, Create a user with an account.
+| Parameter | Type   |
+| :-------- | :----- |
+| `id`      | `uuid` |
 
-Requisition Body
-```json
-{
-	"name":"penguinshow",
-	"email":"penguinshow@gmail.com",
-	"age":18,
-	"cpf":"123456678",
-	"nickname":"penguimshow1234",
-	"password":"coxinha1234"
-}
+### Create a user with an account.
+
+```http
+POST /users/user` 
 ```
 
-POST ``/users/user/deposit``, Deposit an quantity in a account.
+| Parameter  | Type      |
+| :--------- | :-------- |
+| `name`     | `string`  |
+| `email`    | `string`  |
+| `age`      | `integer` |
+| `cpf`      | `string`  |
+| `nickname` | `string`  |
+| `password` | `string`  |
 
-Requisition Body
-```json
-{
-	"id": "57cbe0b9-0940-49a6-a579-3377f97fc3ef",
-	"quantity": "100.00"
-}
+### Deposit an quantity in a account.
+
+```http
+POST `/users/user/deposit` 
 ```
 
-POST ``/users/user/withdraw``, Withdraw an quantity in a account.
+| Parameter  | Type      |
+| :--------- | :-------- |
+| `id`       | `uuid`    |
+| `quantity` | `decimal` |
 
-Requisition Body
-```json
-{
-	"id": "57cbe0b9-0940-49a6-a579-3377f97fc3ef",
-	"quantity": "100.00"
-}
+### Withdraw an quantity in a account.
+
+```http
+POST `/users/user/withdraw`
 ```
 
-POST ``/users/user/transaction``, Makes a transaction for another account
+| Parameter  | Type      |
+| :--------- | :-------- |
+| `id`       | `uuid`    |
+| `quantity` | `decimal` |
 
-Requisition Body
-```json
-{
-	"sender":"57cbe0b9-0940-49a6-a579-3377f97fc3ef",
-	"receiver":"9eb7fca9-44ea-49c9-86d5-9ebb85712d55",
-	"quantity":"100.00"
-}
+### Makes a transaction for another account
+
+```http
+POST `/users/user/transaction` 
 ```
+
+| Parameter  | Type      |
+| :--------- | :-------- |
+| `sender`   | `uuid`    |
+| `receiver` | `uuid`    |
+| `quantity` | `decimal` |
+
+In sender and receiver the value is the uuid of account sender and account receiver
 
 ## Todo List 📝
 
