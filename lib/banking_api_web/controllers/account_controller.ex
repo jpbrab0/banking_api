@@ -6,7 +6,7 @@ defmodule BankingApiWeb.AccountController do
   def make_deposit(conn, params) do
     {:ok, message} = Operations.deposit(params["id"], params["quantity"])
 
-    json(conn, %{message: message})
+    json(conn, %{status: 200, message: message})
   end
 
   def make_withdraw(conn, params) do
